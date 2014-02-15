@@ -28,8 +28,14 @@ if (Meteor.isClient) {
   Template.message.helpers({
     processedBody: function() {
       return Emoji.convert(this.body);
-    } 
+    }
   });
+
+  Template.message.rendered = function() {
+    if ($(".messages")) {
+      $(".messages").scrollTop($(".messages")[0].scrollHeight);
+    }
+  };
 }
 
 if (Meteor.isServer) {
