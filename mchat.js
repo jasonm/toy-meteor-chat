@@ -24,10 +24,17 @@ if (Meteor.isClient) {
       }
     }
   });
+
+  Template.message.helpers({
+    processedBody: function() {
+      return Emoji.convert(this.body);
+    } 
+  });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    // code to run on server at startup
     if (Messages.find().count() === 0) {
       Messages.insert({ date: new Date(), room: 'lobby', author: 'Jason', body: 'Hello' });
       Messages.insert({ date: new Date(), room: 'lobby', author: 'Jason', body: 'welcome to the chat' });
@@ -36,9 +43,5 @@ if (Meteor.isServer) {
       Messages.insert({ date: new Date(), room: 'otherchat', author: 'Jason', body: 'OTHER CHAT welcome to the chat' });
       Messages.insert({ date: new Date(), room: 'otherchat', author: 'Jason', body: 'OTHER CHAT come in!' });
     }
-    // code to run on server at startup
   });
 }
-
-
-

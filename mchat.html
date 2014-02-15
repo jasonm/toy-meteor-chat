@@ -17,13 +17,15 @@
 <template name="chat">
   <h3>#{{room}}</h3>
 
-  {{#each messages}}
-    {{> message }}
-  {{/each}}
+  <div class="messages">
+    {{#each messages}}
+      {{> message }}
+    {{/each}}
+  </div>
 
   <input type="text" name="new-message" placeholder="Chat">
 </template>
 
 <template name="message">
-<p class="message"><a title="{{date}}"><strong>{{author}}:</strong> {{body}}</a></p>
+<p class="message"><a title="{{date}}"><strong>{{author}}:</strong> {{{processedBody}}}</a></p>
 </template>

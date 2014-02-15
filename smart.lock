@@ -1,7 +1,15 @@
 {
   "meteor": {},
   "dependencies": {
-    "basePackages": {},
-    "packages": {}
+    "basePackages": {
+      "emoji": {}
+    },
+    "packages": {
+      "emoji": {
+        "git": "https://github.com/AlarmingCow/meteor-emoji",
+        "tag": "v0.9.0",
+        "commit": "5643ed81291df39a8006b55a652646b9fd7fd05b"
+      }
+    }
   }
 }
